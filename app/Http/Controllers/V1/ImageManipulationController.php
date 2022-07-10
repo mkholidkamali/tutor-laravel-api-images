@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ResizeImageRequest;
 use App\Models\ImageManipulation;
-use App\Http\Requests\StoreImageManipulationRequest;
-use App\Http\Requests\UpdateImageManipulationRequest;
+use App\Models\Album;
 
 class ImageManipulationController extends Controller
 {
@@ -19,13 +19,18 @@ class ImageManipulationController extends Controller
         //
     }
 
+    public function byAlbum(Album $album)
+    {
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreImageManipulationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreImageManipulationRequest $request)
+    public function resize(ResizeImageRequest $request)
     {
         //
     }
@@ -40,18 +45,6 @@ class ImageManipulationController extends Controller
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateImageManipulationRequest  $request
-     * @param  \App\Models\ImageManipulation  $imageManipulation
-     * @return \Illuminate\Http\Response
-     */
-    // public function update(UpdateImageManipulationRequest $request, ImageManipulation $imageManipulation)
-    // {
-    //    
-    // }
 
     /**
      * Remove the specified resource from storage.

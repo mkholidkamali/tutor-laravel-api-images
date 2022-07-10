@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\V1\AlbumController;
+use App\Http\Controllers\V1\ImageManipulationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function() {
     Route::apiResource('album', AlbumController::class);
+    Route::controller(ImageManipulationController::class)->group(function() {
+        Route::get('image', 'index');
+        Route::get('image/by-album/{album}', 'byAlbum');
+        Route::get('image/{image}', 'show');
+        Route::post('image/resize', 'resize');
+        Route::delete('image/{image}', 'destroy');
+    });
 });
