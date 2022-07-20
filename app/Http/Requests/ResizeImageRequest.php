@@ -28,7 +28,7 @@ class ResizeImageRequest extends FormRequest
             'image' => ['required'],
             'w' => ['required', 'regex:/^\d+(\.\d+)?%?$/'], // 50, 50%, 50.123, 50.123%
             'h' => ['regex:/^\d+(\.\d+)?%?$/'],
-            'album_id' => ['exists:Models,id']
+            'album_id' => ['exists:App\Models\ImageManipulation,id']
         ];
 
         $image = $this->all()['image'] ?? false;
@@ -37,7 +37,7 @@ class ResizeImageRequest extends FormRequest
         } else {
             $rules['image'][] = 'url';
         }
-
+        
         return $rules;
     }
 }
